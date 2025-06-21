@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haulage Management</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<!-- <link th:href="@{/css/toast.css}" rel="stylesheet"> -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+<!-- Remix Icon CDN -->
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+	rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script type="text/javascript">
+	function getState(id, idField) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+
+			if (this.readyState == 4 && this.status == 200) {
+
+				console.log("Response: ", this.responseText);
+
+				/* document.getElementById('state.id').innerHTML = this.responseText; */
+				document.getElementById(idField).innerHTML = this.responseText;
+
+			}
+
+		};
+
+		xhttp.open("GET", "../state/getStateByCountryId?id=" + id
+				+ "&action=getState", true);
+		//string action="getstate";
+		xhttp.send();
+
+	}
+</script>
+<script type="text/javascript">
+	//onchange="getDistrict(this.value,'District')"
+	function getDistrict(id, field) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+
+			if (this.readyState == 4 && this.status == 200) {
+
+				console.log("Response: ", this.responseText);
+
+				/* document.getElementById('state.id').innerHTML = this.responseText; */
+				document.getElementById(field).innerHTML = this.responseText;
+
+			}
+
+		};
+
+		xhttp.open("GET", "../district/getDistrictByStateId?id=" + id
+				+ "&action=getDistrict", true);
+		//string action="getstate";
+		xhttp.send();
+
+	}
+</script>
+
+</head>
+
+
+
+<body>
+	<main class="d-flex">
+		<!-- Sidebar -->
+		<div class="sidebar px-3 py-0">
+			<!-- Arrow -->
+			<div class="sidebar-arrow">
+				<i class="ri-menu-line"></i>
+			</div>
+			<div class="navnav">
+				<!-- logo of the Sidebar -->
+				<a href="dashv2.html"
+					class=" logo-div d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+					<span class="fs-4 heading px-3"> <img
+						th:src="@{/img/logo.png}" alt="" width="170" />
+				</span>
+				</a>
+				<div class="nav-content">
+					<!-- Categories -->
+					<div class="category">
+						<div class="sub-heading">
+							<h6 class="mb-2">Manage</h6>
+						</div>
+						<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+							<li class=""><a href="./dashv2.html"
+								class="nav-link link-dark sidebar-li"> <i
+									class="ri-dashboard-line px-0" style="font-size: 20px;"></i> <span>Dashboard</span>
+							</a></li>
+
+							<li class=""><a href="./organization.html"
+								class="nav-link link-dark sidebar-li"> <i
+									class="ri-organization-chart " style="font-size: 20px;"></i> <span>Organization</span>
+							</a></li>
+
+							<li><a href="./members.html" class="nav-link link-dark">
+									<i class="ri-user-line " style="font-size: 20px;"></i> <span>Members</span>
+							</a></li>
+
+							<li><a href="./student.html" class="nav-link link-dark">
+									<i class="ri-admin-line " style="font-size: 20px;"></i> <span>Haulage
+										Managment</span>
+							</a></li>
+						</ul>
+					</div>
+					<!-- Categories -->
+					<div class="category">
+						<div class="sub-heading">
+							<h6 class="mb-2">Manage</h6>
+						</div>
+						<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+							<li class="collapsible"><a href="#"
+								class="nav-link link-dark sidebar-li"> <i
+									class="ri-dashboard-line px-0" style="font-size: 20px;"></i> <span>Dashboard</span>
+							</a></li>
+							<li class="collapsible d-flex flex-column  align-items-start">
+								<a href="#" class="nav-link link-dark sidebar-li "> <i
+									class="ri-organization-chart " style="font-size: 20px;"></i> <span>Organization
+										<span class="sidebar-coll-arrow"><i
+											class="ri-arrow-right-s-line"></i></span>
+								</span>
+							</a>
+								<ul class="sub-menu  px-0 m-0 nav-pills"
+									style="list-style: none;">
+									<li class="collapsible d-flex flex-column "><a href="#1"
+										class="nav-link link-dark sidebar-li">Employess <span
+											class="sidebar-coll-arrow"><i
+												class="ri-arrow-right-s-line"></i></span></a>
+										<ul class="sub-menu px-0 m-0 nav-pills"
+											style="list-style: none;">
+											<li class="collapsible d-flex flex-column "><a
+												href="#11" class="nav-link link-dark sidebar-li">Add
+													Employees <span class="sidebar-coll-arrow"><i
+														class="ri-arrow-right-s-line"></i></span>
+											</a>
+												<ul class="sub-menu  px-0 m-0 nav-pills"
+													style="list-style: none;">
+													<li class="collapsible d-flex flex-column "><a
+														href="#1" class="nav-link link-dark sidebar-li">Departments
+															<span class="sidebar-coll-arrow"><i
+																class="ri-arrow-right-s-line"></i></span>
+													</a>
+														<ul class="sub-menu px-0 m-0 nav-pills"
+															style="list-style: none;">
+															<li class=""><a href="./organization.html"
+																class="nav-link link-dark sidebar-li text-nowrap">Software
+																	Developer</a></li>
+															<li class=""><a href="#21"
+																class="nav-link link-dark side   bar-li">Java
+																	Developer</a></li>
+															<li class=""><a href="#31"
+																class="nav-link link-dark sidebar-li">Python
+																	Developer</a></li>
+
+														</ul></li>
+													<li class=""><a href="#2"
+														class="nav-link link-dark sidebar-li">Payments</a></li>
+													<li class=""><a href="#3"
+														class="nav-link link-dark sidebar-li">Departments</a></li>
+
+												</ul></li>
+											<li class=""><a href="#21"
+												class="nav-link link-dark sidebar-li">View Employees</a></li>
+											<li class=""><a href="#31"
+												class="nav-link link-dark sidebar-li">ID Card</a></li>
+
+										</ul></li>
+									<li class=""><a href="#2"
+										class="nav-link link-dark sidebar-li">Payments</a></li>
+									<li class=""><a href="#3"
+										class="nav-link link-dark sidebar-li">Departments</a></li>
+
+								</ul>
+							</li>
+
+
+							<!-- Add more list items here -->
+						</ul>
+					</div>
+					<div class="category">
+						<div class="sub-heading">
+							<h6 class="mb-2">Admin</h6>
+						</div>
+						<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+							<li><a href="./employee.html" class="nav-link link-dark">
+									<i class="ri-team-line"></i> <span>Employees</span>
+							</a></li>
+
+							<li><a href="#" class="nav-link link-dark"> <i
+									class="ri-folders-line"></i> <span>Projects</span>
+									
+							</a></li>
+
+							<li><a href="#" class="nav-link link-dark"> <i
+									class="ri-file-chart-line"></i> <span>Reports</span>
+							</a></li>
+							<li><a href="#" class="nav-link link-dark"> <i
+									class="ri-settings-2-line"></i> <span>Settings</span>
+							</a></li>
+
+						</ul>
+					</div>
+					<!-- Categories End -->
+				</div>
+
+
+				<div class="dropdown position-fixed profile-container  bg-white">
+					<a href="#"
+						class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+						id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="https://avatars.githubusercontent.com/u/67789838?v=4"
+						alt="" width="32" height="32" class="rounded-circle me-2"> <span>Profile</span>
+					</a>
+					<ul class="dropdown-menu profile-menu text-small shadow fade"
+						aria-labelledby="dropdownUser2">
+						<li><a class="dropdown-item" href="#">New project...</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="./login.html">Sign out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Body  -->
+		<div class="main-content  p-0 ">
+			<div class="alert-box  text-center">
+				Welcome to New <span style="padding-right: 5px; padding-left: 5px;">ERP</span>
+				Portal
+			</div>
+
+			<!-- Main Page Data  -->
+			<div class="container-fluid px-3 p-0 pb-5">
+				<div
+					class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+					<h3 class="page-heading">Courier Management</h3>
+					<p class="header-date m-0 " id="current-date"></p>
+				</div>
+
+				<div class="d-flex mb-3">
+					<a href="#" class="back-arrow pback" onclick="goBack()"> <i
+						class="ri-arrow-left-line"></i> <span class=" px-3">Back to
+							Previous Page</span>
+					</a>
+				</div>
+				<form th:action="@{saveHaulage}" th:object="${haulage}"
+					method="post">
+
+					<!-- Main Data Container -->
+					<div class="data-container p-4 ">
+						<div class="row justify-content-center">
+							<div class="col-md-11 ">
+
+
+
+
+								<!-- Courier Row 1 -->
+								<div class="row differ">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">Client Detail(s)</div>
+									</div>
+									<div class="col-md-12 py-3">
+										<div class="row justify-content-between">
+											<div class="col-md-6 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="addmission-date" class="org-form-label my-2 ">Booking
+															Date</label>
+													</div>
+													<div class="col-md-7">
+														<input type="date" th:field="*{bookingDate}"name="addmission-date"
+															id="addmission-date"
+															class="form-control org-form-input add-org-form-input">
+														<span id="addmission-date-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Save-Receiver" class="org-form-label my-2 ">Save
+															Receiver ?</label>
+													</div>
+													<div class="col-md-7">
+														<select th:name="saveReceiver" 
+														id="Save-Receiver "
+															class="form-select org-form-input add-org-form-input">
+															<option value="yes">Yes</option>
+															<option value="no">No</option>
+														</select> <span id="Save-Receiver-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row justify-content-between py-2">
+											<div class="col-md-6 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="addmission-date" class="org-form-label my-2 ">Search
+															Client</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="addmission-date"
+															id="addmission-date"
+															class="form-control org-form-input add-org-form-input"
+															placeholder="Using Phone or Name"> <span
+															id="addmission-date-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Save-Receiver" class="org-form-label my-2 ">Search
+															Receiver</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="addmission-date"
+															id="addmission-date"
+															class="form-control org-form-input add-org-form-input"
+															placeholder="Using Phone or Name"> <span
+															id="addmission-date-error" class="error-message"></span>
+														<span id="Save-Receiver-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- Courier Row 2 -->
+								<div class="row differ my-2 justify-content-between "
+									style="border: none;">
+
+									<!-- 2nd Row 1st Column Start -->
+									<div class="col-md-6 differ  pb-3">
+										<div class="row">
+											<div class="col-md-12  mybg-secondary py-2 mb-3">
+												<div class="head ">Sender/Consignor Detail(s)</div>
+											</div>
+										</div>
+
+										<div class="row justify-content-between gap-1">
+											<div class="col-md-12 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="country" class="org-form-label my-2 ">Name</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{senderName}"
+															name="addmission-date" id="addmission-date"
+															class="form-control org-form-input add-org-form-input">
+														<span id="addmission-date-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Phone Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="phone" class="org-form-label my-2 ">Phone</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{senderMobileNo}"
+															name="phone" id="phone"
+															class="form-control org-form-input add-org-form-input">
+														<span id="phone-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Phone Column End  -->
+
+
+											<!-- Email Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Email" class="org-form-label my-2 ">Email</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{senderEmailID}"
+															name="Email" id="Email"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Email-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Email Column End  -->
+
+
+											<!-- Address Line 1 Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="address1" class="org-form-label my-2 ">Address
+															Line 1</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{AddressLine1}"
+															name="address1" id="address1"
+															class="form-control org-form-input add-org-form-input">
+														<span id="address1-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Address Line 1 Column End  -->
+
+
+											<!-- Address Line 2 Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="address2" class="org-form-label my-2 ">Address
+															Line 2</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{AddressLine2}"
+															name="address2" id="address2"
+															class="form-control org-form-input add-org-form-input">
+														<span id="address1-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Address Line 2 Column End  -->
+
+
+											<!-- Country Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="country" class="org-form-label my-2 ">Country</label>
+													</div>
+													<div class="col-md-7">
+														<select name="country" id="country"
+															th:field="*{country.id}"
+															class="form-select org-form-input add-org-form-input"
+															th:onchange="getState(this.value, 'state.id')">
+															<option value="">Select Country</option>
+															<option th:each="i:${countryList}"
+																th:text="${i.countryName}" th:value="${i.id}"></option>
+														</select> <span id="country-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Country Column End  -->
+
+
+											<!-- State Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="State" class="org-form-label my-2 ">State</label>
+													</div>
+													<div class="col-md-7">
+														<select name="State" th:id="state.id"
+															th:field="*{state.id}"
+															onchange="getDistrict(this.value,'selectid')"
+															class="form-select org-form-input add-org-form-input">
+
+														</select> <span id="State-error" class="State-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- State Column End -->
+
+											<!-- District Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="State" class="org-form-label my-2 ">District</label>
+													</div>
+													<div class="col-md-7">
+														<select
+															th:field="*{senderDistrict}"
+															name="District" th:id="selectid" 
+															class="form-select org-form-input add-org-form-input">
+
+
+														</select> <span id="District-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- District Column End -->
+
+
+											<!-- City Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="pincode" class="org-form-label my-2 ">City</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{senderCity}" name="City"
+															id="City"
+															class="form-control org-form-input add-org-form-input">
+														<span id="pincode-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- City Column Start  -->
+
+
+											<!-- Pin code Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="pincode" class="org-form-label my-2 ">Pin
+															Code</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="pincode" id="pincode"
+															th:field="*{senderPincode}"
+															class="form-control org-form-input add-org-form-input">
+														<span id="pincode-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Pin code Column Start  -->
+
+
+											<!-- LandMark code Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="LandMark" class="org-form-label my-2 ">LandMark</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{senderLandmark}"
+														name="LandMark" id="LandMark"
+															class="form-control org-form-input add-org-form-input">
+														<span id="LandMark-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Pin code Column Start  -->
+
+										</div>
+
+									</div>
+									<!-- 2nd Row 1st Column End -->
+
+
+
+									<!-- 2nd Row 1st Column Start -->
+									<div class="col-md-6 differ  pb-3">
+										<div class="row">
+											<div class="col-md-12  mybg-secondary py-2 mb-3">
+												<div class="head ">Receiver/Consignee Detail(s)</div>
+											</div>
+										</div>
+
+										<div class="row justify-content-between gap-1">
+											<div class="col-md-12 col-sm-4">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="country" class="org-form-label my-2 ">Name</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverName}"
+															name="addmission-date" id="addmission-date"
+															class="form-control org-form-input add-org-form-input">
+														<span id="addmission-date-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Phone Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="phone" class="org-form-label my-2 ">Phone</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverMobileNo}"
+															name="phone" id="phone"
+															class="form-control org-form-input add-org-form-input">
+														<span id="phone-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Phone Column End  -->
+
+
+											<!-- Email Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Email" class="org-form-label my-2 ">Email</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverEmailID}"
+															name="Email" id="Email"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Email-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Email Column End  -->
+
+
+											<!-- Address Line 1 Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="address1" class="org-form-label my-2 ">Address
+															Line 1</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverAddressLine1}"
+															name="address1" id="address1"
+															class="form-control org-form-input add-org-form-input">
+														<span id="address1-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Address Line 1 Column End  -->
+
+
+											<!-- Address Line 2 Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="address2" class="org-form-label my-2 ">Address
+															Line 2</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverAddressLine2}"
+															name="address2" id="address2"
+															class="form-control org-form-input add-org-form-input">
+														<span id="address1-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Address Line 2 Column End  -->
+
+
+											<!-- Country Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="country" class="org-form-label my-2 ">Country</label>
+													</div>
+													<div class="col-md-7">
+														<select name="country" id="country"
+															th:field="*{country.id}"
+															class="form-select org-form-input add-org-form-input"
+															th:onchange="getState(this.value, 'receiverState')">
+															<option value="">Select Country</option>
+															<option th:each="i:${countryList}"
+																th:text="${i.countryName}" th:value="${i.id}"></option>
+
+														</select> <span id="country-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Country Column End  -->
+
+
+											<!-- State Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="State" class="org-form-label my-2 ">State</label>
+													</div>
+													<div class="col-md-7">
+														<select name="State" th:id="receiverState"
+															th:field="*{state.id}"
+															onchange="getDistrict(this.value,'District')"
+															class="form-select org-form-input add-org-form-input">
+
+														</select> <span id="State-error" class="State-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- State Column End -->
+
+											<!-- District Column Start -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="State" class="org-form-label my-2 ">District</label>
+													</div>
+													<div class="col-md-7">
+														<select 
+															th:field="*{receiverDistrict}"
+														 	id="District"
+															class="form-select org-form-input add-org-form-input">
+
+
+														</select> <span id="District-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- District Column End -->
+
+
+											<!-- City Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="pincode" class="org-form-label my-2 ">City</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverCity}" name="City"
+															id="City"
+															class="form-control org-form-input add-org-form-input">
+														<span id="pincode-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- City Column Start  -->
+
+
+											<!-- Pin code Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="pincode" class="org-form-label my-2 ">Pin
+															Code</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverPincode}"
+															name="pincode" id="pincode"
+															class="form-control org-form-input add-org-form-input">
+														<span id="pincode-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Pin code Column Start  -->
+
+
+											<!-- LandMark code Column Start  -->
+											<div class="col-md-12 col-sm-4">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="LandMark" class="org-form-label my-2 ">LandMark</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" th:field="*{receiverLandmark}"
+															name="LandMark" id="LandMark"
+															class="form-control org-form-input add-org-form-input">
+														<span id="LandMark-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<!-- Pin code Column Start  -->
+
+										</div>
+
+									</div>
+									<!-- 2nd Row 1st Column End -->
+
+
+
+								</div>
+
+
+								<!-- Courier Row 4 Start-->
+								<div class="row differ">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">
+											Change Unit(s) <span class="text-small">if desired</span>
+										</div>
+									</div>
+									<div class="col-md-12 py-3">
+										<div class="row justify-content-between">
+											<div class="col-md-6 col-sm-4  my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Weight-Unit" class="org-form-label my-2 ">Weight
+															Unit</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Weight-Unit" 
+															th:field="*{weightUnit}" id="haulage_weight_unit"
+															class="form-select org-form-input add-org-form-input">
+															<!--input:--= class = "form-control-validate[required]"  -->
+															<option value=""> Select Weight Unit</option>
+															<option value="mg-milligram">mg-milligram</option>
+															<option value="gm-gram">gm-gram</option>
+															<option value="lb-pound">lb-pound</option>
+															<option value="kg-kilogram">kg-kilogram</option>
+															<option value="t-metric ton">t-metric-ton</option>
+															
+															
+														</select> <span id="Weight-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Length-Unit" class="org-form-label my-2 ">Length
+															Unit</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Length-Unit" id="haulage_length_unit "
+															th:field="*{lengthUnit}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="">Select Length Unit</option>
+															<option value="cm-centimeter">cm-centimeter</option>
+															<option value="in-inch">in-inch</option>
+														</select> <span id="Length-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6 col-sm-4 my-1">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Volume-Unit" class="org-form-label my-2 ">Volume
+															Unit</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Volume-Unit" id="haulage_volume-unit"
+															th:field="*{volumeUnit}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="">Select Volume Unit</option>
+															<option value="l-litre">l-litre</option>
+															<option value="m?-cubic meter">m-cubic meter</option>
+														</select> <span id="Volume-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-4 my-1">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Distance-Unit" class="org-form-label my-2 ">Distance-Unit</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Distance-Unit" id="haulage_distance_unit"
+															th:field="*{distanceUnit}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="">Select Distance Unit</option>
+															<option value="km-kilometer">km-kilometer</option>
+															<option value="mi-mile">mi-mile</option>
+															<option value="nm-nautical mile">nm-nautical mile</option>
+														</select> <span id="Distance-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Courier Row 4 End-->
+
+
+								<!-- Courier Row 5 Start-->
+								<div class="row differ my-2">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">Shipment Detail(s)</div>
+									</div>
+									<div class="col-md-12 py-3">
+										<div class="row justify-content-between">
+											<div class="col-md-6 col-sm-4  my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Weight-Unit" class="org-form-label my-2 ">Courier
+															Mode</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Courier-Mode" id="Weight-Unit"
+															th:field="*{courierMode}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="road">By Road</option>
+															<option value="air">BY AIR</option>
+														</select> <span id="Courier-Mode-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- eWay Bill NO -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="eway" class="org-form-label my-2 ">eWay
+															Bill No.</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="eway" id="eway"
+															th:field="*{ewayBillNo}"
+															class="form-control org-form-input add-org-form-input">
+														<span id="eway-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Consignment Type -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Consignment-Type" class="org-form-label my-2 ">Consignment
+															Type</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Consignment-Type" id="Consignment-Type"
+															th:field="*{consignmentType}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="none">Select One</option>
+															<option value="Bag">Pershable Goods</option>
+															<option value="Dummy">General Cargo</option>
+														</select> <span id="Volume-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- No. of Pieces -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Piece" class="org-form-label my-2 ">No.
+															of Piece(s)</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Piece" id="Piece"
+															th:field="*{noofpieces}"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Piece-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Hazardous Material -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Hazardous-Material"
+															class="org-form-label my-2">Hazardous Material</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Hazardous-Material" id="Hazardous-Material"
+															th:field="*{hazardous}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="no">No</option>
+															<option value="yes">Yes</option>
+															
+														</select> <span id="Hazardous-Material-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-6 col-sm-4 my-1" id="explain-container">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Explain" class="org-form-label my-2">Explain</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Explain" id="Explain"
+																th:field="*{explaination}"
+															class="form-control org-form-input add-org-form-input"
+															placeholder="Battery, Charger" disabled> <span
+															id="Explain-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+
+											<!-- Courier Center -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Courier-Center" class="org-form-label my-2 ">Courier
+															Center</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Courier-Center" id="Courier-Center"
+															th:field="*{courierCenter}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="hp">Himachal Pradesh</option>
+															<option value="pb">Punjab</option>
+															<option value="ch">Chandigarh</option>
+														</select> <span id="Courier-Centert-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Distance Unit -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Distance-Unit" class="org-form-label my-2 ">Distance</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Distance-Unit"
+															th:field="*{distance}" id="Distance-Unit"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Distance-Unit-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Consignment Description -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Consignment-Description"
+															class="org-form-label my-2 ">Consignment
+															Description</label>
+													</div>
+													<div class="col-md-7">
+														<textarea name="" id="" rows="3" th:field="*{description}"
+															class="form-control org-form-input "></textarea>
+														<span id="Consignment-Description-error"
+															class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<hr class="my-1">
+
+											<div class="col-md-12">
+												<div>
+													<input type="checkbox" name="dontUseWeight" id="use-weight" class="use-weight" th:value="true" />
+													<label for="use-weight" style="font-size: 12px;">Don't
+														use Weight(s)</label>
+												</div>
+
+												<div class="" id="const">
+													<table
+														class="table align-middle mb-5  table-responsive table-bordered border ">
+														<thead class="bg-gray border table-secondary">
+															<tr>
+																<th class="py-2 text-nowrap">Sr. No.</th>
+																<th class="py-2">Length</th>
+																<th class="py-2">Width</th>
+																<th class="py-2">Height</th>
+																<th class="py-2" >Volumetric Weight</th>
+																<th class="py-2">Weight</th>
+																<th class="py-2">Fragile</th>
+															</tr>
+														</thead>
+														<tbody class="border" id="tableBodyForOrder">
+
+															<tr class="table-row"
+																th:each="haulage, Status : *{haulageItems}">
+																<td>
+																	<div class="text" id="table-serial-no">1</div>
+																</td>
+																<td><input type="text" id="length-1"
+																	th:field="*{haulageItems[__${Status.index}__].length}"
+																	class="form-control org-form-input" th:onchange="calculateAllWeight()" th:onkeypress="return onlyNos(event,this);">
+																</td>
+																<td><input type="text" id="width-1"
+																	th:field="*{haulageItems[__${Status.index}__].width} "
+																	class="form-control org-form-input" th:onchange="calculateAllWeight()" th:onkeypress="return onlyNos(event,this);">
+																</td>
+																<td class="text"><input type="text" id="height-1"
+																	th:field="*{haulageItems[__${Status.index}__].height}"
+																	class="form-control org-form-input" th:onchange="calculateAllWeight()" th:onkeypress="return onlyNos(event,this);">
+																</td>
+																<td><input type="text" id="volumetricWeight-1"
+																	th:field="*{haulageItems[__${Status.index}__].volumetricWeight}"
+																	class="form-control org-form-input" readonly>
+																</td>
+																<td class="text text-nowrap"><input type="text" id="weight-1"
+																	th:field="*{haulageItems[__${Status.index}__].weight}"
+																	class="form-control org-form-input" th:onchange="calculateAllWeight()"  th:onkeypress="return onlyNos(event,this);" >
+																</td>
+																<td><select name="Fragile" id="fragile-1"
+																	th:field="*{haulageItems[__${Status.index}__].fragile}"
+																	class="form-select org-form-input add-org-form-input"
+																	style="min-width: 70px;">
+																		<option value="yes">Yes</option>
+																		<option value="no">No</option>
+																</select>
+															</td>
+															</tr>
+
+														</tbody>
+													</table>
+												</div>
+
+												<!-- Modal -->
+												<div class="modal fade" id="delete-member-model"
+													tabindex="-1" aria-labelledby="delete-member-model"
+													aria-hidden="true">
+													<div class="modal-dialog modal-dialog-centered">
+														<div class="modal-content">
+															<div class="modal-body model-text">Are you sure you
+																want to remove this member from your organization? All
+																data related to this member will be deleted.</div>
+															<div class="modal-footer">
+																<button type="button"
+																	class="btn btn-secondary model-btn"
+																	data-bs-dismiss="modal">Cancel</button>
+																<button type="submit" class="btn btn-danger  model-btn">Delete
+																	Member</button>
+															</div>
+														</div>
+														
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="col-md-12 Weight-subdiv-hide">
+												<div
+													class="d-flex  justify-content-center align-items-center">
+													<div class="add-column">
+														<p
+															style="background-color: transparent; border: none; cursor: pointer;"
+															id="a">
+															<span> <i class="ri-add-circle-line " 	id="add-table"
+																style="font-size: 28px; color: #198754;"></i>
+															</span>
+														</p>
+													</div>
+
+													<div class="remove-column">
+														<p
+															style="background-color: transparent; border: none; cursor: pointer;" >
+															<span> <i class="ri-close-circle-line text-danger" id="remove-table"
+																style="font-size: 28px;"></i>
+															</span>
+															
+														</p>
+													</div>
+												</div>
+											</div>
+
+
+											<!-- Hide When Weight Checkbox Is Checked -->
+											<!-- Distance Unit -->
+											<div class="col-md-6 col-sm-4 my-1 Weight-subdiv-hide">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Coorier-Service" class="org-form-label my-2 ">Total
+															Weight</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Total-Weight" id="Total-Weight"
+															th:field="*{totalWeight}"
+															class="form-control org-form-input add-org-form-input"
+															disabled> <span id="Total-Weight-error"
+															class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Expected Delivery  -->
+											<div class="col-md-6 col-sm-4 my-1 Weight-subdiv-hide">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Total-Weight" class="org-form-label my-2 ">Total
+															Weight</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Total-Weight" id="LabelContent"
+															class="form-control org-form-input add-org-form-input"
+															placeholder="(Weight ) | (Volumetric Weight)" disabled>
+														<span id="Total-Weight-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+
+
+											<!-- Distance Unit -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Coorier-Service" class="org-form-label my-2 ">Hualage
+															Service</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Coorier Service" id="Coorier Service"
+															th:field="*{courierService}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="yes">Select Plan</option>
+															<option value="yes">XZY</option>
+															<option value="yes">LMO</option>
+														</select> <span id="Coorier Service-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Expected Delivery  -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Expected-Delivery"
+															class="org-form-label my-2 ">Expected Delivery</label>
+													</div>
+													<div class="col-md-7">
+														<input type="date" name="Expected-Delivery"
+															th:field="*{expectedDelieveryDate}"
+															id="Expected-Delivery"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Expected-Delivery-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Courier Row 5 End-->
+
+
+								<!-- TODO: ROW 6 Add -->
+
+
+								<!-- Courier Row 7 Start-->
+								<div class="row differ my-2">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">Charges Detail(s)</div>
+									</div>
+
+
+									<div class="col-md-12 py-3">
+										<div class="row justify-content-between">
+
+											<!-- Chrages -->
+											<div class="col-md-6 col-sm-4  my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="charges" class="org-form-label my-2 ">Charges
+															(₹)</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="charges" id="charges"
+															th:field="*{charges}"
+															class="form-control org-form-input add-org-form-input">
+														<span id="charges-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Final Charges -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Final-Charges" class="org-form-label my-2 ">Final
+															Charges (₹)</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Final-Charges"
+															th:field="*{FinalCharges}" id="Final-Charges"
+															class="form-control org-form-input add-org-form-input"
+															disabled> <span id="Final-Charges-error"
+															class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- tax -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="tax" class="org-form-label my-2 ">Tax</label>
+													</div>
+													<div class="col-md-7">
+														<select name="tax" id="tax" th:field="*{taxType}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="none">Select One</option>
+															<option value="VAT">VAT</option>
+															<option value="GST">GST</option>
+														</select> <span id="tax-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Tax Persentage  -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="tax-per" class="org-form-label my-2 ">Tax
+															%</label>
+													</div>
+													<div class="col-md-7">
+														<select name="tax-per" id="tax-per"
+															th:field="*{taxPercentage}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="">Select One</option>
+															<option value="2.3">2.3%</option>
+															<option value="18">18%</option>
+														</select> <span id="tax-per-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+
+											<!-- Discount Type -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Discount-Type" class="org-form-label my-2 ">Discount
+															Type</label>
+													</div>
+													<div class="col-md-7">
+														<select name="Discount-Type" id="Discount-Type"
+															th:field="*{discountType}"
+															class="form-select org-form-input add-org-form-input">
+															<option value="none">Select One</option>
+															<option value="2.3">2.3%</option>
+															<option value="18">18%</option>
+														</select> <span id="Discount-Type-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+											<!-- Discount  -->
+											<div class="col-md-6 col-sm-4 my-1">
+												<!-- for lable and input  -->
+												<div class="row">
+													<div class="col-md-4">
+														<label for="Discount" class="org-form-label my-2 ">Discount</label>
+													</div>
+													<div class="col-md-7">
+														<input type="text" name="Discount" id="Discount"
+															th:field="*{discountInAmt}"
+															class="form-control org-form-input add-org-form-input">
+														<span id="Discount-error" class="error-message"></span>
+													</div>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+								<!-- Courier Row 7 End-->
+
+
+
+								<!-- Courier Row 8 Start-->
+								<div class="row differ my-2">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">Payment Detail(s)</div>
+									</div>
+
+									<!--  Payment  -->
+									<div class="row">
+										<div class="col-md-12 my-1" id="payment-column">
+											<div class="row justify-content-between">
+												<div class="col-md-6 col-sm-4  my-1">
+													<div class="row">
+														<div class="col-md-4">
+															<label for="Amount" class="org-form-label my-2 ">Amount</label>
+														</div>
+														<div class="col-md-7">
+															<input type="text" name="Amount" id="Amount"
+																th:field="*{amount}"
+																class="form-control org-form-input add-org-form-input">
+															<span id="Amount-error" class="error-message"></span>
+														</div>
+													</div>
+												</div>
+
+												<!--  Payment Mode -->
+												<div class="col-md-6 col-sm-4 my-1">
+													<div class="row">
+														<div class="col-md-4">
+															<label for=" Payment-Mode" class="org-form-label my-2 ">Payment
+																Mode</label>
+														</div>
+														<div class="col-md-7">
+															<select name=" Payment-Mode" id=" Payment-Mode"
+																th:field="*{paymentMode}"
+																class="form-select org-form-input add-org-form-input">
+																<option value="none">Select One</option>
+																<option value="CASH">CASH</option>
+																<option value="CREDIT">CREDIT</option>
+																<option value="CHEQUE">CHEQUE</option>
+																<option value="POS">POS</option>
+															</select> <span id="Payment-Mode-error" class="error-message"></span>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div class="col-md-12 my-1">
+											<div
+												class="d-flex  justify-content-center align-items-center">
+												<div class="add-column">
+													<p
+														style="background-color: transparent; border: none; cursor: pointer;"
+														id="add-payment">
+														<span> <i class="ri-add-circle-line "
+															style="font-size: 28px; color: #198754;"></i>
+														</span>
+													</p>
+												</div>
+
+												<div class="remove-column">
+													<p
+														style="background-color: transparent; border: none; cursor: pointer;"
+														id="remove-payment">
+														<span> <i class="ri-close-circle-line text-danger"
+															style="font-size: 28px;"></i>
+														</span>
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Courier Row 8 End-->
+
+
+
+								<!-- Form Button Controls  -->
+								<div class="row my-4 gap-3">
+									<div class="col-md-2">
+										<button type="reset" class="btn btn-danger"
+											style="width: 100%;">Reset</button>
+									</div>
+									<div class="col-md-2">
+										<button type="submit" class="btn btn-success"
+											style="width: 100%;">Book Haulage</button>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</main>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+	<!-- Custom Js Files  -->
+	<script src="./js/custom.js"></script>
+
+
+	<!-- Go Back Button JS -->
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
+
+
+	<!-- Script For Checkbox Based Hide Show address Field -->
+	<script>
+		$(document).ready(function() {
+			// Hide both containers by default
+			$('#shipping-input-container').hide();
+			$('#delivery-input-container').hide();
+
+			$('#shipping-checkbox').change(function() {
+				if ($(this).is(':checked')) {
+					$('#shipping-input-container').show();
+				} else {
+					$('#shipping-input-container').hide();
+				}
+			});
+
+			$('#delivery-checkbox').change(function() {
+				if ($(this).is(':checked')) {
+					$('#delivery-input-container').show();
+				} else {
+					$('#delivery-input-container').hide();
+				}
+			});
+		});
+	</script>
+
+
+	<!-- Script for Toggle weight-subdiv based on weight Checkbox -->
+	<script>
+		$(document).ready(function() {
+			$('#use-weight').change(function() {
+				if (this.checked) {
+					$('.Weight-subdiv-hide').hide();
+					$('#Weight-table-div').hide();
+				} else {
+					$('.Weight-subdiv-hide').show();
+					$('#Weight-table-div').show();
+				}
+			});
+		});
+	</script>
+
+
+
+
+	
+ <script>
+ const hazardousMaterialSelect = document.getElementById('Hazardous-Material');
+ const explainContainer = document.getElementById('explain-container');
+ const explainInput = document.getElementById('Explain');
+
+ hazardousMaterialSelect.addEventListener('change', function() {
+   const hazardousMaterialValue = this.value; // Get the selected value
+
+   if (hazardousMaterialValue === 'yes') {
+     explainInput.disabled = false; // Enable Explain input field if "Yes" is selected
+     explainContainer.classList.remove('hidden'); // Unhide the Explain container visually (optional)
+   } else {
+     explainInput.disabled = true; // Disable Explain input field for other selections
+     explainContainer.classList.add('hidden'); // Hide the Explain container visually (optional)
+   }
+ });
+		  
+
+ </script>
+ 
+ 
+<script>
+    $(document).ready(function() {
+        var paymentCounter = 1; // Initial payment counter
+
+        $('#add-payment').click(function() {
+            var clone = $('#payment-column').clone(); // Clone the payment column
+            paymentCounter++; // Increment the payment counter
+
+            // Update IDs and names of input fields in the cloned column
+            clone.attr('id', 'payment-column-' + paymentCounter);
+
+            // Find all input fields and update their IDs and names
+            clone.find('input').each(function() {
+                var originalName = $(this).attr('name');
+                var newName = originalName + paymentCounter;
+                $(this).attr('name', newName).attr('id', newName);
+            });
+
+            // Find all select fields and update their IDs and names
+            clone.find('select').each(function() {
+                var originalName = $(this).attr('name');
+                var newName = originalName + paymentCounter;
+                $(this).attr('name', newName).attr('id', newName);
+            });
+
+            // Append the cloned column after the last column
+            $('#payment-column').after(clone);
+
+            // Enable the remove button if more than one payment column exists
+            $('#remove-payment').prop('disabled', false);
+        });
+
+        $('#remove-payment').click(function() {
+            if (paymentCounter > 1) {
+                $('#payment-column-' + paymentCounter).remove(); // Remove the last duplicated column
+                paymentCounter--; // Decrement the payment counter
+
+                // Disable the remove button if only one payment column remains
+                if (paymentCounter === 1) {
+                    $(this).prop('disabled', true);
+                }
+            }
+        });
+    });
+</script>
+<script>
+function calculateAllWeight(){
+	var sum=0.00;
+	var volumetricWeight=0.00, height=0.00, width=0.00, length=0.00;
+	var table_rows=document.getElementById("tableBodyForOrder").rows.length;
+	
+	console.log("row: "+table_rows);
+	for(var i=1; i<=table_rows; i++){		
+		
+		
+		if(document.getElementById("haulage_weight_unit").value.trim()===''){
+			alert('Kindly Choose Weight unit first');
+			return;
+		}
+		
+		height= parseFloat(document.getElementById("height-"+i).value);
+		width= parseFloat(document.getElementById("width-"+i).value);
+		length= parseFloat(document.getElementById("length-"+i).value);
+		
+		// new code
+		var weightUnit=document.getElementById("haulage_weight_unit").value;
+		console.log("weightUnit: "+ weightUnit);
+		
+		if(weightUnit==="gm-gram"){			
+			volumetricWeight+= ((height*width*length)/5000)*1000; // in gram			
+		}
+		else if(weightUnit==="kg-kilogram"){			
+			volumetricWeight+= ((height*width*length)/5000);	// in kg		
+		}
+		else if(weightUnit==="mg-milligram"){
+			volumetricWeight+= ((height*width*length)/5000)*1000000;	// in mg	
+		}
+		else if(weightUnit==="lb-pound"){
+			volumetricWeight+= ((height*width*length)/5000)*2.20462;	// in pounds	0.001
+		}
+		else if(weightUnit==="t-metric ton"){
+			volumetricWeight+= ((height*width*length)/5000)*0.001;	// in metric tons	
+		}
+		console.log("volumetricWeight: "+ volumetricWeight);
+		document.getElementById("volumetricWeight-"+i).value=volumetricWeight.toFixed(2);
+		sum += parseFloat(document.getElementById("weight-"+i).value);	
+	}
+	
+	
+	document.getElementById("LabelContent").value=sum.toFixed(2)+" (Weight) | "+volumetricWeight.toFixed(2)+" (Volumetric Weight)";
+	document.getElementById("Total-Weight").value= sum>volumetricWeight?sum.toFixed(2):volumetricWeight.toFixed(2);
+	
+}
+
+</script>
+<script>
+$(document).ready(function() {
+	
+	var max_field = 10;
+	var wrapper = $("#tableBodyForOrder");
+	var add = $("#add-table");
+	var remove = $("#remove-table");
+	var index = 1;
+	
+	$(add).click((e) =>{
+		/* alert("agya andr"); */
+		/* alert("add bitton") */
+		if(index < max_field){
+			//haulageItems[__${Status.index}__].length
+			/* <option value="yes">Yes</option>
+				<option value="no">No</option> */
+				//haulageItems[__${Status.index}__].volumetricWeight
+				
+			var newField = '<tr class="table-row">' +
+            '<td><div class="text table-serial-no">' + (index + 1) + '</div></td>' +
+            '<td><input type="text" class="form-control org-form-input" name="haulageItems[' + index + '].length" id="length-'+(index+1) +'" onchange="calculateAllWeight();" onkeypress="return onlyNos(event,this);" /></td>' +
+            '<td><input type="text" class="form-control org-form-input" name="haulageItems[' + index + '].width" id="width-'+(index+1) +'" onchange="calculateAllWeight();"  onkeypress="return onlyNos(event,this);" /></td>' +
+            '<td><input type="text" class="form-control org-form-input" name="haulageItems[' + index + '].height" id="height-'+(index+1) +'" onchange="calculateAllWeight();"  onkeypress="return onlyNos(event,this);" /></td>' +
+            '<td><input type="text" readonly class="form-control org-form-input" name="haulageItems[' + index + '].volumetricWeight" id="volumetricWeight-'+(index+1) +'" /></td>' +
+            '<td><input type="text" class="form-control org-form-input" name="haulageItems[' + index + '].weight" id="weight-'+(index+1) +'" onchange="calculateAllWeight();"  onkeypress="return onlyNos(event,this);" /></td>' +
+            '<td><select id="fragile-'+(index+1) +'" name="haulageItems[' + index + '].fragile" class="form-select org-form-input add-org-form-input" style="min-width: 70px;">' +
+            '<option value="yes">Yes</option>' +
+            '<option value="no">No</option>' +
+            '</select></td>' +
+            '</tr>';
+            wrapper.append(newField);
+			index++;
+
+		};
+	
+	});
+	
+	$(remove).click((e) => {
+        if (index > 1) {
+            $(wrapper).children().last().remove();
+            index--	;
+
+        }
+});
+	
+});	
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Courier Details</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="./custom_table.css">
+
+</head>
+
+
+
+<body>
+    <main class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar px-3 py-0">
+            <!-- Arrow -->
+            <div class="sidebar-arrow">
+                <i class="ri-menu-line"></i>
+            </div>
+            <div class="navnav">
+                <!-- logo of the Sidebar -->
+                <a href="dashv2.html"
+                    class=" logo-div d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <span class="fs-4 heading px-3">
+                        <img src="./img/logo.png" alt="" width="170">
+                    </span>
+                </a>
+                <div class="nav-content">
+                    <!-- Categories -->
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Manage</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li class="">
+                                <a href="./dashv2.html" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-dashboard-line px-0" style="font-size: 20px;"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="./organization.html" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-organization-chart " style="font-size: 20px;"></i>
+                                    <span>Organization</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./members.html" class="nav-link link-dark">
+                                    <i class="ri-user-line " style="font-size: 20px;"></i>
+                                    <span>Members</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./student.html" class="nav-link link-dark">
+                                    <i class="ri-admin-line " style="font-size: 20px;"></i>
+                                    <span>Student Managment</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Categories -->
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Manage</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li class="collapsible">
+                                <a href="#" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-dashboard-line px-0" style="font-size: 20px;"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="collapsible d-flex flex-column  align-items-start">
+                                <a href="#" class="nav-link link-dark sidebar-li ">
+                                    <i class="ri-organization-chart " style="font-size: 20px;"></i>
+                                    <span>Organization <span class="sidebar-coll-arrow"><i
+                                                class="ri-arrow-right-s-line"></i></span></span>
+                                </a>
+                                <ul class="sub-menu  px-0 m-0 nav-pills" style="list-style: none;">
+                                    <li class="collapsible d-flex flex-column "><a href="#1"
+                                            class="nav-link link-dark sidebar-li">Employess <span
+                                                class="sidebar-coll-arrow"><i
+                                                    class="ri-arrow-right-s-line"></i></span></a>
+                                        <ul class="sub-menu px-0 m-0 nav-pills" style="list-style: none;">
+                                            <li class="collapsible d-flex flex-column "><a href="#11"
+                                                    class="nav-link link-dark sidebar-li">Add Employees <span
+                                                        class="sidebar-coll-arrow"><i
+                                                            class="ri-arrow-right-s-line"></i></span></a>
+                                                <ul class="sub-menu  px-0 m-0 nav-pills" style="list-style: none;">
+                                                    <li class="collapsible d-flex flex-column "><a href="#1"
+                                                            class="nav-link link-dark sidebar-li">Departments <span
+                                                                class="sidebar-coll-arrow"><i
+                                                                    class="ri-arrow-right-s-line"></i></span></a>
+                                                        <ul class="sub-menu px-0 m-0 nav-pills"
+                                                            style="list-style: none;">
+                                                            <li class=""><a href="./organization.html"
+                                                                    class="nav-link link-dark sidebar-li text-nowrap">Software
+                                                                    Developer</a>
+                                                            </li>
+                                                            <li class=""><a href="#21"
+                                                                    class="nav-link link-dark side   bar-li">Java
+                                                                    Developer</a>
+                                                            </li>
+                                                            <li class=""><a href="#31"
+                                                                    class="nav-link link-dark sidebar-li">Python
+                                                                    Developer</a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class=""><a href="#2"
+                                                            class="nav-link link-dark sidebar-li">Payments</a>
+                                                    </li>
+                                                    <li class=""><a href="#3"
+                                                            class="nav-link link-dark sidebar-li">Departments</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class=""><a href="#21" class="nav-link link-dark sidebar-li">View
+                                                    Employees</a>
+                                            </li>
+                                            <li class=""><a href="#31" class="nav-link link-dark sidebar-li">ID Card</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class=""><a href="#2" class="nav-link link-dark sidebar-li">Payments</a></li>
+                                    <li class=""><a href="#3" class="nav-link link-dark sidebar-li">Departments</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <!-- Add more list items here -->
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Admin</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li>
+                                <a href="./employee.html" class="nav-link link-dark">
+                                    <i class="ri-team-line"></i>
+                                    <span>Employees</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-folders-line"></i>
+                                    <span>Projects</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-file-chart-line"></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-settings-2-line"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Categories End -->
+                </div>
+
+
+                <div class="dropdown position-fixed profile-container  bg-white">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://avatars.githubusercontent.com/u/67789838?v=4" alt="" width="32" height="32"
+                            class="rounded-circle me-2">
+                        <span>Profile</span>
+                    </a>
+                    <ul class="dropdown-menu profile-menu text-small shadow fade" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./login.html">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body  -->
+        <div class="main-content  p-0 ">
+            <div class="alert-box  text-center">
+                Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+            </div>
+
+            <!-- Main Page Data  -->
+            <div class="container-fluid px-3 p-0 pb-5">
+                <div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+                    <h3 class="page-heading">
+                        View Courier Detail(s)
+                    </h3>
+                    <p class="header-date m-0 " id="current-date"></p>
+                </div>
+
+                <div class="d-flex mb-3">
+                    <a href="#" class="back-arrow pback" onclick="goBack()">
+                        <i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+                    </a>
+                </div>
+
+                <!-- Main Data Container -->
+                <div class="data-container p-4 ">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11 ">
+
+                            <!-- Print PDFs Row  -->
+                            <div class="row differ my-3 ">
+                                <div class="col-md-12  mybg-secondary py-3">
+                                    <div class="head ">
+                                        Shipment Detail(s)
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td class="table-head">Full Detail(s)</td>
+                                                <td class="table-text">
+                                                    <a href="#" class="small-btn">PDF <span><i
+                                                                class="ri-printer-line px-2"
+                                                                style="font-size: 16px;"></i></span></a>
+                                                </td>
+                                                <td class="table-head">Packing Sticker(s)</td>
+                                                <td class="table-text"> <a href="#" class="small-btn">PDF <span><i
+                                                                class="ri-printer-line px-2"
+                                                                style="font-size: 16px;"></i></span></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <!-- 2nd Row Sender and Reciver Details (Sender/Consignor Detail) -->
+                            <div class="row justify-content-between ">
+                                <!-- Sender Detail Table -->
+                                <div class="col-md-6  my-2  ">
+                                    <div class="row differ">
+                                        <div class="col-md-12  mybg-secondary py-3">
+                                            <div class="head ">
+                                                Sender/Consignor Detail(s)
+                                            </div>
+                                        </div>
+                                         <div class="col-md-12 mt-2">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                
+                                                    <tr>
+                                                        <td class="table-head">Name</td>
+                                                        <td class="table-text">Mr.X</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Phone</td>
+                                                        <td class="table-text">9001XXXX65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Email Id</td>
+                                                        <td class="table-text">me@kuldeepsaini.in</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 1</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 2</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Country</td>
+                                                        <td class="table-text">India</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">State</td>
+                                                        <td class="table-text">No Idea</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">District</td>
+                                                        <td class="table-text">Hanumangrah Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">City/Town</td>
+                                                        <td class="table-text">Gangland Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Pincode/Zipcode</td>
+                                                        <td class="table-text">335513</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Landmark</td>
+                                                        <td class="table-text"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <!-- Receiver Detail Table -->
+                                <div class="col-md-6  my-2">
+                                    <div class="row differ">
+                                        <div class="col-md-12  mybg-secondary py-3">
+                                            <div class="head ">
+                                                Receiver/Consignee Detail(s)
+                                            </div>
+                                        </div>
+                                         <div class="col-md-12 mt-2">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                
+                                                    <tr>
+                                                        <td class="table-head">Name</td>
+                                                        <td class="table-text">Mr.X</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Phone</td>
+                                                        <td class="table-text">9001XXXX65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Email Id</td>
+                                                        <td class="table-text">me@kuldeepsaini.in</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 1</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 2</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Country</td>
+                                                        <td class="table-text">India</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">State</td>
+                                                        <td class="table-text">No Idea</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">District</td>
+                                                        <td class="table-text">Hanumangrah Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">City/Town</td>
+                                                        <td class="table-text">Gangland Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Pincode/Zipcode</td>
+                                                        <td class="table-text">335513</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Landmark</td>
+                                                        <td class="table-text"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                         </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                             <!-- 2nd Row End-->
+                           
+
+                            <!-- 3rd Row Shippping and Delivery Address -->
+                            <div class="row justify-content-between ">
+                                <!-- Sender Detail Table -->
+                                <div class="col-md-6  my-2  ">
+                                    <div class="row differ">
+                                        <div class="col-md-12  mybg-secondary py-3">
+                                            <div class="head ">
+                                                Shipping Address Detail(s)
+                                            </div>
+                                        </div>
+                                         <div class="col-md-12 mt-2">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                
+                                                    <tr>
+                                                        <td class="table-head">Name</td>
+                                                        <td class="table-text">Mr.X</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Phone</td>
+                                                        <td class="table-text">9001XXXX65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Email Id</td>
+                                                        <td class="table-text">me@kuldeepsaini.in</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 1</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 2</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Country</td>
+                                                        <td class="table-text">India</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">State</td>
+                                                        <td class="table-text">No Idea</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">District</td>
+                                                        <td class="table-text">Hanumangrah Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">City/Town</td>
+                                                        <td class="table-text">Gangland Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Pincode/Zipcode</td>
+                                                        <td class="table-text">335513</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Landmark</td>
+                                                        <td class="table-text"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <!-- Receiver Detail Table -->
+                                <div class="col-md-6  my-2">
+                                    <div class="row differ">
+                                        <div class="col-md-12  mybg-secondary py-3">
+                                            <div class="head ">
+                                                Receiver/Consignee Detail(s)
+                                            </div>
+                                        </div>
+                                         <div class="col-md-12 mt-2">
+                                            <table class="table table-bordered">
+                                                <tbody>
+                                                
+                                                    <tr>
+                                                        <td class="table-head">Name</td>
+                                                        <td class="table-text">Mr.X</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Phone</td>
+                                                        <td class="table-text">9001XXXX65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Email Id</td>
+                                                        <td class="table-text">me@kuldeepsaini.in</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 1</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">AddressLine 2</td>
+                                                        <td class="table-text">3L93E9100012</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Country</td>
+                                                        <td class="table-text">India</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">State</td>
+                                                        <td class="table-text">No Idea</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">District</td>
+                                                        <td class="table-text">Hanumangrah Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">City/Town</td>
+                                                        <td class="table-text">Gangland Town</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Pincode/Zipcode</td>
+                                                        <td class="table-text">335513</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="table-head">Landmark</td>
+                                                        <td class="table-text"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                         </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                             <!-- 3rd Row End-->
+
+
+                            <!-- 4th Row Shipment Detail Table  -->
+                            <div class="row differ my-2">
+                                <div class="col-md-12  mybg-secondary py-3">
+                                    <div class="head ">
+                                        Delivery Address Detail(s)
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 px-1 py-0">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td class="table-head">Issued By</td>
+                                                <td class="table-text">
+                                                    N/A
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Booking Date</td>
+                                                <td class="table-text">2023-09-22 16:20:00.0</td>
+                                                <td class="table-head">Tracking Code</td>
+                                                <td class="table-text">3L93E9100012</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Booking Code</td>
+                                                <td class="table-text">Dooley</td>
+                                                <td class="table-head">Dooley</td>
+                                                <td class="table-text">july@example.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Expected Delivery</td>
+                                                <td class="table-text">2023-09-26 16:30:00.0</td>
+                                                <td class="table-head">Courier Service</td>
+                                                <td class="table-text">Normal</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Consignment Description</td>
+                                                <td class="table-text">description</td>
+                                                <td class="table-head">Declared Value</td>
+                                                <td class="table-text"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Consignment Type</td>
+                                                <td class="table-text">Bag</td>
+                                                <td class="table-head">No. of Piece(s)</td>
+                                                <td class="table-text">2.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Courier Mode</td>
+                                                <td class="table-text">By Road</td>
+                                                <td class="table-head">Hazardous Material ?</td>
+                                                <td class="table-text">Yes</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Courier Center</td>
+                                                <td class="table-text">Maza Maza Courier</td>
+                                                <td class="table-head">Explanation</td>
+                                                <td class="table-text">contains led batteries</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Total Weight(gm)</td>
+                                                <td class="table-text">Maza Maza Courier</td>
+                                                <td class="table-head">Total Distance(km)</td>
+                                                <td class="table-text">1030.80</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- 4th Row Shipment Detail Table End -->
+
+
+                            <!-- 5th Row  Charges Row -->
+                            <div class="row differ my-2">
+                                <div class="col-md-12  mybg-secondary py-3">
+                                    <div class="head ">
+                                        Charges Details
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 px-1 py-0">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        
+                                            <tr>
+                                                <td class="table-head">Courier Charges (₦)</td>
+                                                <td class="table-text">5000.00</td>
+                                                <td class="table-head">Tax Type</td>
+                                                <td class="table-text">VAT</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Tax Amount (₦)</td>
+                                                <td class="table-text">250.00</td>
+                                                <td class="table-head">Tax %</td>
+                                                <td class="table-text">5.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Discount Amount (₦)</td>
+                                                <td class="table-text"></td>
+                                                <td class="table-head">Total Discount % Applied</td>
+                                                <td class="table-text">9001050666565</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-head">Final Charges / Paid Amount (₦)</td>
+                                                <td class="table-text">	5250.0 / 5250.0</td>
+                                                <td class="table-head"></td>
+                                                <td class="table-text"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            
+                            <!-- 5th Row  Charges Row -->
+                            <div class="row differ my-2">
+                                <div class="col-md-12  mybg-secondary py-3">
+                                    <div class="head ">
+                                        Charges Details
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 px-1 py-0">
+                                    <table class="table table-bordered mt-2">
+                                        <tbody>
+                                            <tr>
+                                                <td class="table-head">Courier Charges (₦)</td>
+                                                <td class="table-text">5000.00</td>
+                                                <td class="table-text">5000.00</td>
+                                                <td class="table-text">5000.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Js Files  -->
+    <script src="./js/custom.js"></script>
+
+
+    <!-- Go Back Button JS -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+
+</html>

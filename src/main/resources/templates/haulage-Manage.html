@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Managment</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- Remix Icon CDN -->
+    <link th:href="@{https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" th:href="@{/custom_table.css}">
+
+</head>
+
+
+
+<body>
+    <main class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar px-3 py-0">
+            <!-- Arrow -->
+            <div class="sidebar-arrow">
+                <i class="ri-menu-line"></i>
+            </div>
+            <div class="navnav">
+                <!-- logo of the Sidebar -->
+                <a href="dashv2.html"
+                    class=" logo-div d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <span class="fs-4 heading px-3">
+                        <img src="./img/logo.png" alt="" width="170">
+                    </span>
+                </a>
+                <div class="nav-content">
+                    <!-- Categories -->
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Manage</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li class="">
+                                <a href="./dashv2.html" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-dashboard-line px-0" style="font-size: 20px;"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="./organization.html" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-organization-chart " style="font-size: 20px;"></i>
+                                    <span>Organization</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./members.html" class="nav-link link-dark">
+                                    <i class="ri-user-line " style="font-size: 20px;"></i>
+                                    <span>Members</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./student.html" class="nav-link link-dark">
+                                    <i class="ri-admin-line " style="font-size: 20px;"></i>
+                                    <span>Student Managment</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Categories -->
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Manage</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li class="collapsible">
+                                <a href="#" class="nav-link link-dark sidebar-li">
+                                    <i class="ri-dashboard-line px-0" style="font-size: 20px;"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="collapsible d-flex flex-column  align-items-start">
+                                <a href="#" class="nav-link link-dark sidebar-li ">
+                                    <i class="ri-organization-chart " style="font-size: 20px;"></i>
+                                    <span>Organization <span class="sidebar-coll-arrow"><i
+                                                class="ri-arrow-right-s-line"></i></span></span>
+                                </a>
+                                <ul class="sub-menu  px-0 m-0 nav-pills" style="list-style: none;">
+                                    <li class="collapsible d-flex flex-column "><a href="#1"
+                                            class="nav-link link-dark sidebar-li">Employess <span
+                                                class="sidebar-coll-arrow"><i
+                                                    class="ri-arrow-right-s-line"></i></span></a>
+                                        <ul class="sub-menu px-0 m-0 nav-pills" style="list-style: none;">
+                                            <li class="collapsible d-flex flex-column "><a href="#11"
+                                                    class="nav-link link-dark sidebar-li">Add Employees <span
+                                                        class="sidebar-coll-arrow"><i
+                                                            class="ri-arrow-right-s-line"></i></span></a>
+                                                <ul class="sub-menu  px-0 m-0 nav-pills" style="list-style: none;">
+                                                    <li class="collapsible d-flex flex-column "><a href="#1"
+                                                            class="nav-link link-dark sidebar-li">Departments <span
+                                                                class="sidebar-coll-arrow"><i
+                                                                    class="ri-arrow-right-s-line"></i></span></a>
+                                                        <ul class="sub-menu px-0 m-0 nav-pills"
+                                                            style="list-style: none;">
+                                                            <li class=""><a href="./organization.html"
+                                                                    class="nav-link link-dark sidebar-li text-nowrap">Software
+                                                                    Developer</a>
+                                                            </li>
+                                                            <li class=""><a href="#21"
+                                                                    class="nav-link link-dark side   bar-li">Java
+                                                                    Developer</a>
+                                                            </li>
+                                                            <li class=""><a href="#31"
+                                                                    class="nav-link link-dark sidebar-li">Python
+                                                                    Developer</a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class=""><a href="#2"
+                                                            class="nav-link link-dark sidebar-li">Payments</a>
+                                                    </li>
+                                                    <li class=""><a href="#3"
+                                                            class="nav-link link-dark sidebar-li">Departments</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <li class=""><a href="#21" class="nav-link link-dark sidebar-li">View
+                                                    Employees</a>
+                                            </li>
+                                            <li class=""><a href="#31" class="nav-link link-dark sidebar-li">ID Card</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class=""><a href="#2" class="nav-link link-dark sidebar-li">Payments</a></li>
+                                    <li class=""><a href="#3" class="nav-link link-dark sidebar-li">Departments</a></li>
+
+                                </ul>
+                            </li>
+
+
+                            <!-- Add more list items here -->
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <div class="sub-heading">
+                            <h6 class="mb-2">Admin</h6>
+                        </div>
+                        <ul class=" mt-0 nav nav-pills flex-column mb-auto">
+                            <li>
+                                <a href="./employee.html" class="nav-link link-dark">
+                                    <i class="ri-team-line"></i>
+                                    <span>Employees</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-folders-line"></i>
+                                    <span>Projects</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-file-chart-line"></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link link-dark">
+                                    <i class="ri-settings-2-line"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- Categories End -->
+                </div>
+
+
+                <div class="dropdown position-fixed profile-container  bg-white">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+                        id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://avatars.githubusercontent.com/u/67789838?v=4" alt="" width="32" height="32"
+                            class="rounded-circle me-2">
+                        <span>Profile</span>
+                    </a>
+                    <ul class="dropdown-menu profile-menu text-small shadow fade" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./login.html">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body  -->
+        <div class="main-content  p-0 ">
+            <div class="alert-box  text-center">
+                Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+            </div>
+
+            <!-- Main Page Data  -->
+            <div class="container-fluid px-3 p-0 pb-5">
+                <div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+                    <h3 class="page-heading">
+                        Booking &#x276F; View Haulage(s)
+                    </h3>
+                    <p class="header-date m-0 " id="current-date"></p>
+                </div>
+
+                <div class="d-flex mb-3">
+                    <a href="#" class="back-arrow pback" onclick="goBack()">
+                        <i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+                    </a>
+                </div>
+
+                <!-- Main Data Container -->
+                <div class="data-container p-4 ">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11 ">
+
+                            <!-- Print PDFs Row  -->
+                            <!-- <div class="row differ my-3 ">
+                                <div class="row gap-2 align-items-end my-3">
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="mini-head mb-1">
+                                            Search By
+                                        </div>
+                                        <div class="d-flex gap-2 flex-wrap justify-content-center mybdr-secondary bg-white "
+                                            style="border-radius: 7px; padding: 5px 10px;">
+                                            <div class="switch-btn  switch-active">
+                                                <span class="switch-span"><i class="ri-book-line"></i></span> Client
+                                                Name
+                                            </div>
+                                            <div class="switch-btn">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Booking
+                                                Code
+                                            </div>
+                                            <div class="switch-btn">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span>
+                                                Tracking Code
+                                            </div>
+                                            <div class="switch-btn">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Booking
+                                                Date(YYYY-MM-DD)
+                                            </div>
+                                            <div class="switch-btn">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Between
+                                                Dates
+                                            </div>
+                                            <div class="switch-btn">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Courier
+                                                Status
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <div class="d-flex flex-column">
+                                                <div class="mini-head mb-1">
+                                                    Search Client
+                                                </div>
+                                                <div id="client-name-searchbox" style="display: block;">
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text"
+                                                            class="org-control-input form-control org-form-input"
+                                                            placeholder="Search By Client Name">
+                                                        <button type="submit" class="btn btn-success  ">Search</button>
+                                                    </div>
+                                                </div>
+                                                <div id="booking-code-searchbox" style="display: none;">
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text"
+                                                            class="org-control-input form-control org-form-input"
+                                                            placeholder="Search By Client Name">
+                                                        <button type="submit" class="btn btn-success  ">Search</button>
+                                                    </div>
+                                                </div>
+                                                <div id="tracking-code-searchbox" style="display: none;">
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text"
+                                                            class="org-control-input form-control org-form-input"
+                                                            placeholder="Search By Client Name">
+                                                        <button type="submit" class="btn btn-success  ">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="row differ my-3">
+                                <div class="row gap-2 align-items-end my-3">
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="mini-head mb-1">
+                                            Search By
+                                        </div>
+                                        <div class="d-flex gap-2 flex-wrap justify-content-center mybdr-secondary bg-white "
+                                            style="border-radius: 7px; padding: 5px 10px;">
+                                            <div class="switch-btn switch-active" data-target="client-name">
+                                                <span class="switch-span"><i class="ri-book-line"></i></span> Client
+                                                Name
+                                            </div>
+                                            <div class="switch-btn" data-target="booking-code-searchbox">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Booking
+                                                Code
+                                            </div>
+                                            <div class="switch-btn" data-target="tracking-code-searchbox">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span>
+                                                Tracking Code
+                                            </div>
+                                            <div class="switch-btn" data-target="booking-date-searchbox">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Booking
+                                                Date
+                                            </div>
+                                            <div class="switch-btn" data-target="between-date-searchbox">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Between
+                                                Dates
+                                            </div>
+                                            <div class="switch-btn" data-target="courier-status-searchbox">
+                                                <span class="switch-span"><i class="ri-archive-line"></i></span> Haulage Status
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-5">
+                                            <div class="d-flex flex-column">
+                                                <div class="mini-head mb-1">
+                                                    Search Client
+                                                </div>
+                                                <div id="client-name" class="search-box" style="display: block;">
+                                                    <div class="d-flex gap-2">
+                                                    <form th:action="@{searchHaulage}"  method="get">
+                                                        <input type="text" name="clientName" id="addmission-date"
+                                                            class="form-control org-form-input add-org-form-input"
+                                                            placeholder="Search By client Name">
+                                                        <button type="submit" class="btn btn-success p-1 "
+                                                     
+                                                           style="font-size: 14px;">Search</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                                <div id="booking-code-searchbox" class="search-box"
+                                                    style="display: none;">
+                                                      <form th:action="@{searchHaulage}"  method="get">
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text" name="BookingCode" id="addmission-date"
+                                                            class="form-control org-form-input add-org-form-input"
+                                                            placeholder="Search By Booking Code">
+                                                        <button type="submit" class="btn btn-success p-1 "
+                                                            style="font-size: 14px;">Search</button>
+                                                            </form>
+                                                            
+                                                    </div>
+                                                </div>
+
+                                                <div id="tracking-code-searchbox" class="search-box"
+                                                    style="display: none;">
+											<form th:action="@{searchHaulage}"  method="get">
+                                                    
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text" name="trackingCode" id="addmission-date"
+                                                            class="form-control org-form-input add-org-form-input"
+                                                            placeholder="Search By Tracking Code">
+                                                        <button type="submit" class="btn btn-success p-1 "
+                                                            style="font-size: 14px;">Search</button>
+                                                            </form>
+                                                    </div>
+                                                </div>
+
+                                                <div id="booking-date-searchbox" class="search-box"
+                                                    style="display: none;">
+                                                      <form th:action="@{searchHaulage}"  method="get">
+                                                    <div class="d-flex gap-2">
+                                                        <input type="text" name="bookingdate" id="booking-date"
+                                                            class="form-control org-form-input add-org-form-input"
+                                                            placeholder="Search By Booking Date">
+                                                        <button type="submit" class="btn btn-success p-1 "
+                                                            style="font-size: 14px;">Search</button>
+                                                            </form>
+                                                    </div>
+                                                </div>
+                                                <div id="courier-status-searchbox" class="search-box"
+                                                    style="display: none;">
+											<form th:action="@{searchHaulage}"  method="get">
+                                                    
+                                                    <div class="d-flex gap-2">
+                                                            <select name="courierstatus" id="courier-status" class="form-select org-form-input add-org-form-input">
+                                                                <option value="">Select</option>
+                                                                <option value="Booked">Booked</option>
+                                                            </select>
+                                                        <button type="submit" class="btn btn-success p-1 "
+                                                            style="font-size: 14px;">Search</button>
+                                                            </form>
+                                                    </div>
+                                                </div>
+
+                                                <div id="between-date-searchbox" class="search-box"
+                                                    style="display: none;">
+                                                    <form action="@{searchHaulage}"  method="get">
+                                                    
+                                                    <div class="d-flex gap-2">
+                                                        <div class="d-flex flex-column">
+                                                            <label for="start-date" style="font-size: 12px;">Start Date</label>
+                                                            <input type="date" name="startdate" id="start-date"
+                                                                class="form-control org-form-input add-org-form-input"
+                                                                placeholder="Start Date">
+                                                        </div>
+                                                        <div class="d-flex flex-column">
+                                                            <label for="end-date" style="font-size: 12px;">End Date</label>
+                                                            <input type="date" name="enddate" id="end-date"
+                                                            class="form-control org-form-input add-org-form-input"
+                                                            placeholder="End Date">
+                                                        </div>
+                                                       
+                                                        <div class="d-flex flex-column justify-content-end">
+                                                            <button type="submit" class="btn btn-success p-1 "
+                                                            style="font-size: 14px;">Search</button>
+                                                        </div>
+													</form>
+                                                        
+                                                       
+                                                    </div>
+                                                </div>
+                                                <!-- Add other search boxes with unique IDs -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Row Start-->
+                            <div class="row differ my-2">
+                                <div class="col-md-12  mybg-secondary py-3">
+                                    <div class="head ">
+                                        Haulage(s) - Search List
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 px-1 py-0">
+                                    <table class="table table-bordered mt-2 table-hover">
+                                        <thead>
+                                            <tr>
+                                                <td class="table-head">S.No.</td>
+                                                <td class="table-head">Booking Date</td>
+                                                <td class="table-head">Expected Date</td>
+                                                <td class="table-head">Client's Name</td>
+                                                <td class="table-head">Client's Mobile</td>
+                                                <td class="table-head">Tracking Code</td>
+                                                <td class="table-head">Current Status</td>
+                                                <td class="table-head">Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="i,status:${getHaulageList}">
+                                            	<td th:text="${i.id}"></td>
+                                                <td th:text="${i.bookingDate}"></td>
+                                                <td th:text="${i.expectedDelieveryDate}"></td>
+                                                <td th:text="${i.senderName}"></td>
+                                                <td th:text="${i.senderMobileNo}"></td>
+                                                <td th:text="${i.sender_Tracking_Code}"></td>
+                                                <td th:text="${i.haulage_Status}"></td>
+												
+                                                <td class="table-text">
+                                                    <div class="d-flex">
+                                                        <a th:href="@{'viewhaulage?id=' + ${i.id}}"
+ class="px-2"><span><i class="ri-eye-line green"
+                                                                    style="font-size: 16px;"></i></span></a>
+                                                        <a th:href="@{'deletehaulage?id=' + ${i.id}}" class="px-2"><span><i
+                                                                    class="ri-delete-bin-2-fill red"
+                                                                    style="font-size: 16px;"></i></span></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <!-- Custom Js Files  -->
+    <script src="./js/custom.js"></script>
+
+
+    <!-- Go Back Button JS -->
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const switchBtns = document.querySelectorAll('.switch-btn');
+
+            switchBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+
+                    // Remove switch-active class from all buttons
+                    switchBtns.forEach(btn => {
+                        btn.classList.remove('switch-active');
+                    });
+
+                    // Add switch-active class to the clicked button
+                    this.classList.add('switch-active');
+
+                    // Hide all search boxes
+                    const searchBoxes = document.querySelectorAll('.search-box');
+                    searchBoxes.forEach(box => {
+                        box.style.display = 'none';
+                    });
+
+                    // Determine which search box to display based on the clicked button
+                    const targetId = this.dataset.target;
+
+                    const targetSearchBox = document.getElementById(targetId);
+
+                    if (targetSearchBox) {
+                        targetSearchBox.style.display = 'block';
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
