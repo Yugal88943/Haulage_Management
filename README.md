@@ -59,7 +59,9 @@ The system follows a clean **MVC (Model-View-Controller)** pattern with a clear 
 ## 📈 Future Enhancements
 
 **Google Maps Integration:** Implementation of Google Maps API for live GPS tracking and visual route planning.
+
 **Predictive Analytics:** AI-driven predictive maintenance for vehicles using XGBoost to reduce downtime.
+
 **Cloud Deployment:** Dockerization and deployment via CI/CD pipelines (GitHub Actions/Google Cloud).
 
 ---
